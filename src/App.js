@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Componente from './components/componente';
+import Propiedades from './components/propiedades';
+import Estado from './components/estado';
 
 function App() {
+  let title = "Hola react";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{title}</h1>
+      <section>
+        <Componente subtitle="Soy el subtitulo"></Componente>
+        <hr/>
+        <Propiedades
+          cadena="soy cadena"
+          numero={33}
+          booleano={true}
+          arreglo={[1,2,3,4]}
+          objeto={{nombre:'jose'}}
+          funcion={(num) => num*num}
+          componente={<Componente subtitle="soy un subcomponente"></Componente>}
+        ></Propiedades>
+        <hr/>
+        <Estado></Estado>
+      </section>
     </div>
   );
 }
